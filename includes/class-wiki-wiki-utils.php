@@ -162,7 +162,5 @@ class Wiki_Wiki_Utils {
 			return false;
 		}
 	}
-
-
-//	public static function
+	
 }
