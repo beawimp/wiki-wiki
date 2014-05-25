@@ -20,25 +20,10 @@ get_header(); ?>
 		</header>
 
 		<aside class="search-wrapper">
-			<span class="search-title">Find A Resource:</span> <input type="text" id="resource-search">
+			<label for="resource-search" class="search-title">Find A Resource:</label> <input type="text" id="resource-search">
 		</aside>
 
-		<?php
-			$args = array(
-				'hide_empty' => false
-			);
-			$cats = get_terms( 'cg_wikiwiki_categories', $args );
-
-			echo '<h2 class="page-title">Resource Categories</h2>';
-			foreach ( $cats as $cat ) : ?>
-				<section class="wiki-cat-wrapper">
-					<h3 class="wiki-cat <?php echo esc_attr( $cat->term_id ) . ' ' . esc_attr( $cat->slug ); ?>"><a href="<?php echo esc_url( home_url( '/resources/categories/' . $cat->slug ) ); ?>"><?php echo esc_html( $cat->name ); ?></a></h3>
-					<ul class="wiki-cat-list">
-						<?php wimp_get_wiki_posts_by_cat( $cat->term_id, 4 ); ?>
-					</ul>
-				</section>
-			<?php endforeach;
-		?>
+		<h2 class="page-title">Resource Categories</h2>
 	</section>
 
 	<?php get_sidebar( 'wiki' ); ?>
