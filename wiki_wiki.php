@@ -56,8 +56,10 @@ add_action( 'wp_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_resources' ) )
 add_action( 'admin_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_admin_resources' ) );
 add_action( 'admin_menu', array( 'Wiki_Wiki_Settings', 'admin_menu' ) );
 add_action( 'admin_init', array( 'Wiki_Wiki_Settings', 'init_settings' ) );
+add_action( 'init', 'wiki_wiki_pt_init' );
 add_action( 'template_redirect', array( 'Wiki_Wiki_Routes', 'template_redirect' ) );
 
 // Wireup filters
+add_filter( 'post_updated_messages', 'wiki_wiki_pt_updated_messages' );
 
 // Wireup shortcodes

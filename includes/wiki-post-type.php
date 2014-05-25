@@ -37,7 +37,6 @@ function wiki_wiki_pt_init() {
 	) );
 
 }
-add_action( 'init', 'wiki_wiki_pt_init' );
 
 function wiki_wiki_pt_updated_messages( $messages ) {
 	global $post;
@@ -63,4 +62,3 @@ function wiki_wiki_pt_updated_messages( $messages ) {
 
 	return $messages;
 }
-add_filter( 'post_updated_messages', 'wiki_wiki_pt_updated_messages' );
