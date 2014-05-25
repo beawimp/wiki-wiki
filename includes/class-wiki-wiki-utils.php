@@ -16,7 +16,7 @@ class Wiki_Wiki_Utils {
 		load_textdomain( 'wiki_wiki', WP_LANG_DIR . '/wiki_wiki/wiki_wiki-' . $locale . '.mo' );
 		load_plugin_textdomain( 'wiki_wiki', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-		// require_once( WIKI_WIKI_PATH . '/includes/class.wiki.php' );
+		wiki_wiki_pt_init(); // Load our CPT so the rewrite rules can be flushed on activation
 	}
 
 	/**
