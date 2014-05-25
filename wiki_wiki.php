@@ -45,6 +45,7 @@ require_once WIKI_WIKI_PATH . 'includes/wiki-post-type.php';
 require_once WIKI_WIKI_PATH . 'includes/categories-taxonomy.php';
 require_once WIKI_WIKI_PATH . 'includes/class-wiki-wiki-utils.php';
 require_once WIKI_WIKI_PATH . 'includes/class-wiki-wiki-settings.php';
+require_once WIKI_WIKI_PATH . 'includes/class-wiki-wiki-routes.php';
 
 // Wireup actions
 register_activation_hook(   __FILE__, array( 'Wiki_Wiki_Utils', 'activate'   ) );
@@ -55,6 +56,7 @@ add_action( 'wp_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_resources' ) )
 add_action( 'admin_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_admin_resources' ) );
 add_action( 'admin_menu', array( 'Wiki_Wiki_Settings', 'admin_menu' ) );
 add_action( 'admin_init', array( 'Wiki_Wiki_Settings', 'init_settings' ) );
+add_action( 'template_redirect', array( 'Wiki_Wiki_Routes', 'template_redirect' ) );
 
 // Wireup filters
 
