@@ -23,7 +23,6 @@ class Wiki_Wiki_Utils {
 	 * Activate the plugin
 	 */
 	public static function activate() {
-		// First load the init scripts in case any rewrite functionality is being loaded
 		self::init();
 
 		flush_rewrite_rules();
@@ -38,7 +37,7 @@ class Wiki_Wiki_Utils {
 	}
 
 	/**
-	 * Add all scripts and styles
+	 * Add all front-end scripts and styles
 	 */
 	public static function load_resources() {
 
