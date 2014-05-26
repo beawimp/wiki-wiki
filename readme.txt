@@ -1,4 +1,4 @@
-=== seoslides ===
+=== Wiki-Wiki ===
 Contributors: Brainfestation
 Donate link:
 Tags: wiki
