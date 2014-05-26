@@ -6,7 +6,7 @@
  */
 
 //if uninstall not called from WordPress exit
-if ( ! defined( 'cg_wikiwiki_uninstall' ) )
+if ( ! defined( 'wiki_wiki_uninstall' ) )
     exit();
 
 
