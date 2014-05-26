@@ -24,15 +24,15 @@ class Wiki_Wiki_Routes {
 			if ( 'resources' === $wp->request ) {
 				$template_file_name = self::$allowed_files['home'];
 
-				// Serve up the taxonomy page template
+			// Serve up the taxonomy page template
 			} elseif ( isset( $wp->query_vars['wiki-wiki'] ) && false !== strpos( $wp->query_vars['wiki-wiki'], 'category' ) ) {
 				$template_file_name = self::$allowed_files['category'];
 
-				// Serve up the new wiki page screen so we can create a new wiki post
+			// Serve up the new wiki page screen so we can create a new wiki post
 			} elseif ( isset( $wp->query_vars['name'] ) && 'add-wiki' === $wp->query_vars['name'] ) {
 				$template_file_name = self::$allowed_files['add-wiki'];
 
-				// Other wise we'll serve the singular page layout
+			// Other wise we'll serve the singular page layout
 			} else {
 				$template_file_name = self::$allowed_files['single'];
 			}
