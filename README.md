@@ -12,7 +12,7 @@ Add a wiki to WordPress
 
 ## Description
 
-**Another WordPress Wiki?**
+**Another WordPress Wiki?**  
 Yup. In my opinion, all the other Wiki plugins for WordPress were clunky or just straight didn't work. So out of my frustration of a quality Wiki, I decided to build my own.
 
 ### THE PLUGIN IS IN HEAVY DEVELOPMENT
