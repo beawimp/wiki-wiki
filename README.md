@@ -1,5 +1,5 @@
 # Wiki-Wiki
-**Contributors**: Brainfestation  
+**Contributors**: [Brainfestation](https://profiles.wordpress.org/brainfestation/)  
 **Donate link**:  
 **Tags**: wiki  
 **Requires at least**: 3.9  
