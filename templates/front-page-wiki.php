@@ -20,10 +20,10 @@ get_header(); ?>
 		</header>
 
 		<aside class="search-wrapper">
-			<label for="resource-search" class="search-title">Find A Resource:</label> <input type="text" id="resource-search">
+			<label for="resource-search" class="search-title"><?php _e( 'Find A Resource:', 'wiki_wiki' ); ?></label> <input type="text" id="resource-search">
 		</aside>
 
-		<h2 class="page-title">Resource Categories</h2>
+		<h2 class="page-title"><?php _e( 'Resource Categories', 'wiki_wiki' ); ?></h2>
 	</section>
 
 	<?php get_sidebar( 'wiki' ); ?>

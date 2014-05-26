@@ -15,46 +15,46 @@ get_header(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
-					<?php edit_post_link( __( 'Edit', 'wimp' ), '<span class="edit-link">', '</span>' ); ?>
+					<?php edit_post_link( __( 'Edit', 'wiki_wiki' ), '<span class="edit-link">', '</span>' ); ?>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
-					<h1>Add New Wiki Page</h1>
+					<h1><?php _e( 'Add New Wiki Page', 'wiki_wiki' ); ?></h1>
 					<?php the_content(); ?>
 
 					<form action="" class="form-horizontal" role="form">
 						<div class="form-group">
 							<label for="wiki-title" class="col-sm-2 control-label input-lg">Title</label>
 							<div class="col-sm-10">
-								<input type="text" name="wiki-title" class="form-control" id="wiki-title" placeholder="Give it a good title... somethingy wimpy.">
+								<input type="text" name="wiki-title" class="form-control" id="wiki-title" placeholder="<?php _e( 'Give it a good title... somethingy wimpy.', 'wiki_wiki' ); ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="wiki-content" class="col-sm-2 control-label">Content</label>
+							<label for="wiki-content" class="col-sm-2 control-label"><?php _e( 'Content', 'wiki_wiki' ); ?></label>
 							<div class="col-sm-10">
 								<?php wp_editor( '', 'wiki-content' ); ?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="wiki-content" class="col-sm-2 control-label">Content</label>
+							<label for="wiki-category" class="col-sm-2 control-label"><?php _e( 'Category', 'wiki_wiki' ); ?></label>
 							<div class="col-sm-10">
-								<select name="" class="form-control" id="">
-									<option value="">-- Choose A Category --</option>
+								<select name="" class="form-control" id="wiki-category">
+									<option value=""><?php _e( '-- Choose A Category --', 'wiki_wiki' ); ?></option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="wiki-content" class="col-sm-2 control-label">Parent</label>
+							<label for="wiki-parent" class="col-sm-2 control-label"><?php _e( 'Parent Wiki', 'wiki_wiki' ); ?></label>
 							<div class="col-sm-10">
-								<select name="" class="form-control" id="">
-									<option value="">-- Assign To A Parent --</option>
+								<select name="" class="form-control" id="wiki-parent">
+									<option value=""><?php _e( '-- Assign To A Parent --', 'wiki_wiki' ); ?></option>
 								</select>
-								<span class="help-block">Assign this new page as a child to an existing wiki page.</span>
+								<span class="help-block"><?php _e( 'Assign this new page as a child to an existing wiki page.', 'wiki_wiki' ); ?></span>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-primary">Create</button>
+								<button type="submit" class="btn btn-primary"><?php _e( 'Create Wiki', 'wiki_wiki' ); ?></button>
 							</div>
 						</div>
 					</form>

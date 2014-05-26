@@ -93,7 +93,7 @@ class Wiki_Wiki_Settings {
 	public static function select_field( $args ) {
 		$values = get_option( 'wiki_wiki_settings' ); ?>
 		<select name="wiki_wiki_settings[<?php echo esc_attr( $args['name'] ); ?>]" id="<?php echo esc_attr( $args['id'] ); ?>">
-			<option value="">Select A Homepage</option>
+			<option value=""><?php _e( 'Select A Homepage', 'wiki_wiki' ); ?></option>
 			<?php foreach ( $args['options'] as $key => $value ) : ?>
 				<option value="<?php echo absint( $value->ID ); ?>"<?php selected( $values[ $args['name'] ], $value->ID ); ?>><?php echo esc_html( $value->post_title ); ?></option>
 			<?php endforeach; ?>
