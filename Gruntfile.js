@@ -11,41 +11,26 @@ module.exports = function( grunt ) {
 					' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
 					' * Licensed GPLv2+' +
 					' */\n'
-			},
-            wiki_wiki: {
-				src: [
-					'assets/js/src/wiki_wiki.js'
-				],
-				dest: 'assets/js/wiki_wiki.js'
 			}
-		},
-		jshint: {
-			all: [
-				'Gruntfile.js',
-				'assets/js/src/**/*.js',
-				'assets/js/test/**/*.js'
-			],
-			options: {
-				curly:   true,
-				eqeqeq:  true,
-				immed:   true,
-				latedef: true,
-				newcap:  true,
-				noarg:   true,
-				sub:     true,
-				undef:   true,
-				boss:    true,
-				eqnull:  true,
-				globals: {
-					exports: true,
-					module:  false
-				}
-			}
+//            general: {
+//				src: [
+//					'assets/js/src/wiki_wiki.js'
+//				],
+//				dest: 'assets/js/wiki_wiki.js'
+//			},
+//			admin: {
+//				src: [
+//					'assets/js/src/wiki_wiki.admin.js'
+//				],
+//				dest: 'assets/js/wiki_wiki.admin.js'
+//			}
 		},
 		uglify: {
 			all: {
 				files: {
-					'assets/js/wiki_wiki.min.js': ['assets/js/wiki_wiki.js']
+//					'assets/js/wiki_wiki.min.js': ['assets/js/wiki_wiki.js'],
+//					'assets/js/wiki_wiki.admin.min.js': ['assets/js/wiki_wiki.admin.js'],
+					'assets/js/add-wiki.min.js': ['assets/js/src/add-wiki.js']
 				},
 				options: {
 					banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
@@ -102,7 +87,7 @@ module.exports = function( grunt ) {
 
 			scripts: {
 				files: ['assets/js/src/**/*.js', 'assets/js/vendor/**/*.js'],
-				tasks: ['jshint', 'concat', 'uglify'],
+				tasks: ['concat', 'uglify'],
 				options: {
 					debounceDelay: 500
 				}
@@ -147,21 +132,20 @@ module.exports = function( grunt ) {
 	} );
 
 	// Load other tasks
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks( 'grunt-contrib-concat' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-compress' );
 
 	// Default task.
 
-	grunt.registerTask( 'default', ['jshint', 'concat', 'uglify', 'sass', 'cssmin'] );
+	grunt.registerTask( 'default', ['concat', 'uglify', 'sass', 'cssmin'] );
 
 
 	grunt.registerTask( 'build', ['default', 'clean', 'copy', 'compress'] );
