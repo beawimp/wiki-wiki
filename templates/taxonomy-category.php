@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<section class="main-body" class="site-content" role="main">
+	<section class="main-body site-content" role="main">
 
 		<header>
 			<h1 class="page-title"><?php _e( 'WIMP WIKI', 'wiki_wiki' ); ?><h1>

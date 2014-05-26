@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<section class="main-body" class="site-content" role="main">
+	<section class="main-body site-content" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -58,8 +58,8 @@ get_header(); ?>
 							</div>
 						</div>
 					</form>
-				</div><!-- .entry-content -->
-			</article><!-- #post-## -->
+				</div>
+			</article>
 
 		<?php endwhile; ?>
 
