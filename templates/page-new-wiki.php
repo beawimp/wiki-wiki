@@ -22,7 +22,9 @@ get_header(); ?>
 					<h1><?php _e( 'Add New Wiki Page', 'wiki_wiki' ); ?></h1>
 					<?php the_content(); ?>
 
-					<form action="" class="form-horizontal" role="form">
+					<div id="wiki-messages"></div>
+
+					<form action="" id="wiki-wiki-add-form" class="form-horizontal" role="form">
 						<div class="form-group">
 							<label for="wiki-title" class="col-sm-2 control-label input-lg">Title</label>
 							<div class="col-sm-10">
@@ -55,6 +57,7 @@ get_header(); ?>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<button type="submit" class="btn btn-primary"><?php _e( 'Create Wiki', 'wiki_wiki' ); ?></button>
+								<?php wp_nonce_field( 'wiki-wiki-add-wiki-nonce', 'wiki-wiki-nonce' ); ?>
 							</div>
 						</div>
 					</form>

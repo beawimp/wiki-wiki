@@ -52,7 +52,14 @@ register_activation_hook(   __FILE__, array( 'Wiki_Wiki_Utils', 'activate'   ) )
 register_deactivation_hook( __FILE__, array( 'Wiki_Wiki_Utils', 'deactivate' ) );
 
 add_action( 'init', array( 'Wiki_Wiki_Utils', 'init' ) );
-add_action( 'init', 'wiki_wiki_pt_init' );
+add_action( 'init', array( 'Wiki_wiki_Post_Type', 'init' ) );
+
+// Front-end Actions
+if ( ! is_admin() ) {
+	add_action( 'wp_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_resources' ) );
+	add_action( 'template_redirect', array( 'Wiki_Wiki_Routes', 'template_redirect' ) );
+	add_action( 'wp_ajax_wiki_wiki_add_wiki', array( 'Wiki_Wiki_Post_Type', 'add_new_wiki' ) );
+}
 
 // Admin Actions
 if ( is_admin() ) {
@@ -61,14 +68,7 @@ if ( is_admin() ) {
 	add_action( 'admin_init', array( 'Wiki_Wiki_Settings', 'init_settings' ) );
 }
 
-
-// Front-end Actions
-if ( ! is_admin() ) {
-	add_action( 'wp_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_resources' ) );
-	add_action( 'template_redirect', array( 'Wiki_Wiki_Routes', 'template_redirect' ) );
-}
-
 // Wireup filters
-add_filter( 'post_updated_messages', 'wiki_wiki_pt_updated_messages' );
+add_filter( 'post_updated_messages', array( 'Wiki_Wiki_Post_Type', 'updated_messages' ) );
 
 // Wireup shortcodes

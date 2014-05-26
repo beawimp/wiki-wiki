@@ -16,7 +16,7 @@ class Wiki_Wiki_Utils {
 		load_textdomain( 'wiki_wiki', WP_LANG_DIR . '/wiki_wiki/wiki_wiki-' . $locale . '.mo' );
 		load_plugin_textdomain( 'wiki_wiki', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
-		wiki_wiki_pt_init(); // Load our CPT so the rewrite rules can be flushed on activation
+		Wiki_Wiki_Post_Type::init(); // Load our CPT so the rewrite rules can be flushed on activation
 	}
 
 	/**
@@ -41,6 +41,12 @@ class Wiki_Wiki_Utils {
 	 */
 	public static function load_resources() {
 
+		// Scripts
+		wp_enqueue_script( 'jquery' );
+
+		// Load only on Add Wiki page
+		// @todo Add in checks against wiki pages and load conditionally
+		wp_enqueue_script( 'wiki-wiki', WIKI_WIKI_URL . 'assets/js/add-wiki.min.js', array( 'jquery' ), WIKI_WIKI_VERSION, true );
 	}
 
 	/**
