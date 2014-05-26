@@ -26,8 +26,8 @@ get_header(); ?>
 							'after'  => '</div>',
 						) );
 					?>
-				</div><!-- .entry-content -->
-			</article><!-- #post-## -->
+				</div>
+			</article>
 
 		<?php endwhile; ?>
 

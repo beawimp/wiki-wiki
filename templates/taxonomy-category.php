@@ -33,7 +33,7 @@ get_header(); ?>
 				<section class="wiki-cat-wrapper">
 					<h3 class="wiki-cat <?php echo esc_attr( $cat->term_id ) . ' ' . esc_attr( $cat->slug ); ?>"><a href="<?php echo esc_url( home_url( '/resources/categories/' . $cat->slug ) ); ?>"><?php echo esc_html( $cat->name ); ?></a></h3>
 					<ul class="wiki-cat-list">
-						<?php wimp_get_wiki_posts_by_cat( $cat->term_id, 4 ); ?>
+
 					</ul>
 				</section>
 			<?php endforeach;
