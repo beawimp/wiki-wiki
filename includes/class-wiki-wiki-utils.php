@@ -48,11 +48,11 @@ class Wiki_Wiki_Utils {
 	 */
 	public static function load_admin_resources() {
 		// Stylesheets
-		wp_enqueue_style( 'wiki-wiki-admin-styles', WIKI_WIKI_URL . 'assets/css/wiki_wiki.admin.min.css', array(), '0.1.0' );
+		wp_enqueue_style( 'wiki-wiki-admin-styles', WIKI_WIKI_URL . 'assets/css/wiki_wiki.admin.min.css', array(), WIKI_WIKI_VERSION );
 
 		// Scripts
 		wp_enqueue_scripts( 'jquery' );
-		wp_enqueue_scripts( 'wiki-wiki-admin-scripts', WIKI_WIKI_URL . 'assets/js/wiki_wiki.admin.min.js', array( 'jquery' ), '0.1.0', true );
+		wp_enqueue_scripts( 'wiki-wiki-admin-scripts', WIKI_WIKI_URL . 'assets/js/wiki_wiki.admin.min.js', array( 'jquery' ), WIKI_WIKI_VERSION, true );
 	}
 
 	/**
