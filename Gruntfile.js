@@ -12,24 +12,10 @@ module.exports = function( grunt ) {
 					' * Licensed GPLv2+' +
 					' */\n'
 			}
-//            general: {
-//				src: [
-//					'assets/js/src/wiki_wiki.js'
-//				],
-//				dest: 'assets/js/wiki_wiki.js'
-//			},
-//			admin: {
-//				src: [
-//					'assets/js/src/wiki_wiki.admin.js'
-//				],
-//				dest: 'assets/js/wiki_wiki.admin.js'
-//			}
 		},
 		uglify: {
 			all: {
 				files: {
-//					'assets/js/wiki_wiki.min.js': ['assets/js/wiki_wiki.js'],
-//					'assets/js/wiki_wiki.admin.min.js': ['assets/js/wiki_wiki.admin.js'],
 					'assets/js/add-wiki.min.js': ['assets/js/src/add-wiki.js']
 				},
 				options: {
