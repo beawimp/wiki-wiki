@@ -65,6 +65,49 @@ class Wiki_Wiki_Post_Type {
 	}
 
 	public static function add_new_wiki() {
-		wp_send_json_success( array( 'done' => 'yup' ) );
+		// Check the user is logged in
+		if ( ! is_user_logged_in() ) {
+			wp_send_json_error( 'You are currently not signed in! Can\'t complete request!' );
+		} else {
+			if ( isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'wiki-wiki-add-wiki-nonce' ) ) {
+				$values = self::sanitize_form_data( $_POST['data'] );
+
+			} else {
+				wp_send_json_error( 'Invalid request!' );
+			}
+		}
+	}
+
+	/**
+	 * Sanitize our wiki form data
+	 *
+	 * @param $data
+	 *
+	 * @return array|bool
+	 */
+	private static function sanitize_form_data( $data ) {
+
+		if ( ! isset( $data ) || ! is_array( $data) ) {
+			return false;
+		}
+
+		$cleaned = array();
+		foreach ( $data as $key => $val ) {
+			$key = sanitize_key( $key );
+
+			switch ( $key ) {
+				case 'wiki-content':
+					$cleaned[ $key ] = wp_kses_post( $val );
+					break;
+				case 'wiki-category':
+				case 'wiki-parent':
+					$cleaned[ $key ] = absint( $val );
+					break;
+				default:
+					$cleaned[ $key ] = sanitize_text_field( $val );
+			}
+		}
+
+		return $cleaned;
 	}
 }

@@ -46,7 +46,7 @@ class Wiki_Wiki_Utils {
 
 		// Load only on Add Wiki page
 		// @todo Add in checks against wiki pages and load conditionally
-		wp_enqueue_script( 'wiki-wiki', WIKI_WIKI_URL . 'assets/js/add-wiki.min.js', array( 'jquery' ), WIKI_WIKI_VERSION, true );
+		wp_enqueue_script( 'wiki-wiki', WIKI_WIKI_URL . 'assets/js/add-wiki.min.js', array( 'wp-util' ), WIKI_WIKI_VERSION, true );
 	}
 
 	/**

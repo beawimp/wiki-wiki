@@ -53,12 +53,12 @@ register_deactivation_hook( __FILE__, array( 'Wiki_Wiki_Utils', 'deactivate' ) )
 
 add_action( 'init', array( 'Wiki_Wiki_Utils', 'init' ) );
 add_action( 'init', array( 'Wiki_wiki_Post_Type', 'init' ) );
+add_action( 'wp_ajax_wiki_wiki_add_wiki', array( 'Wiki_Wiki_Post_Type', 'add_new_wiki' ) );
 
 // Front-end Actions
 if ( ! is_admin() ) {
 	add_action( 'wp_enqueue_scripts', array( 'Wiki_Wiki_Utils', 'load_resources' ) );
 	add_action( 'template_redirect', array( 'Wiki_Wiki_Routes', 'template_redirect' ) );
-	add_action( 'wp_ajax_wiki_wiki_add_wiki', array( 'Wiki_Wiki_Post_Type', 'add_new_wiki' ) );
 }
 
 // Admin Actions

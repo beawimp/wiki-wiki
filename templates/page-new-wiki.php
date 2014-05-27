@@ -28,19 +28,21 @@ get_header(); ?>
 						<div class="form-group">
 							<label for="wiki-title" class="col-sm-2 control-label input-lg">Title</label>
 							<div class="col-sm-10">
-								<input type="text" name="wiki-title" class="form-control" id="wiki-title" placeholder="<?php _e( 'Give it a good title... somethingy wimpy.', 'wiki_wiki' ); ?>">
+								<input type="text" name="wiki-title" class="form-control wiki-form-field" id="wiki-title" placeholder="<?php _e( 'Give it a good title... somethingy wimpy.', 'wiki_wiki' ); ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="wiki-content" class="col-sm-2 control-label"><?php _e( 'Content', 'wiki_wiki' ); ?></label>
 							<div class="col-sm-10">
-								<?php wp_editor( '', 'wiki-content' ); ?>
+								<?php wp_editor( '', 'wiki-content', array(
+									'editor_class' => 'wiki-form-field',
+								) ); ?>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="wiki-category" class="col-sm-2 control-label"><?php _e( 'Category', 'wiki_wiki' ); ?></label>
 							<div class="col-sm-10">
-								<select name="" class="form-control" id="wiki-category">
+								<select name="wiki-category" class="form-control wiki-form-field" id="wiki-category">
 									<option value=""><?php _e( '-- Choose A Category --', 'wiki_wiki' ); ?></option>
 								</select>
 							</div>
@@ -48,7 +50,7 @@ get_header(); ?>
 						<div class="form-group">
 							<label for="wiki-parent" class="col-sm-2 control-label"><?php _e( 'Parent Wiki', 'wiki_wiki' ); ?></label>
 							<div class="col-sm-10">
-								<select name="" class="form-control" id="wiki-parent">
+								<select name="wiki-parent" class="form-control wiki-form-field" id="wiki-parent">
 									<option value=""><?php _e( '-- Assign To A Parent --', 'wiki_wiki' ); ?></option>
 								</select>
 								<span class="help-block"><?php _e( 'Assign this new page as a child to an existing wiki page.', 'wiki_wiki' ); ?></span>

@@ -40,6 +40,8 @@
 	 * @param event
 	 */
 	function wiki_add_submit( event ) {
+		var form_data = {};
+
 		event.preventDefault();
 
 		// Make sure we aren't already processing..
@@ -48,7 +50,14 @@
 		}
 
 		// Get the form data
-		var formData = $add_wiki_form.serializeArray();
+		$( '.wiki-form-field' ).each( function( field ) {
+			var $this = $( this );
+
+			form_data[ $this.attr( 'name' ) ] = $this.val();
+		});
+
+		// Get the wp_editor content
+		form_data[ 'wiki-content'] = tinyMCE.activeEditor.getContent();
 
 		// Update the messages element we are working on submitting
 		$processing = $( '#wiki-messages' ).removeClass().addClass( 'wiki-loading' ).text( 'Saving Wiki...' );
@@ -59,11 +68,11 @@
 			error: wiki_add_error,
 			data: {
 				nonce: $nonce,
-				data: formData
+				data: form_data
 			}
 		});
 	}
 
-	$add_wiki_form.on( 'submit', wiki_add_submit() );
+	$add_wiki_form.on( 'submit', wiki_add_submit );
 
 } )( this, jQuery );
